@@ -17,7 +17,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://boardwalk.herokuapp.com'
+    origins 'https://boardwalkfe.herokuapp.com'
 
     resource '*',
       headers: :any,
