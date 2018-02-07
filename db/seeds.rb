@@ -6,15 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-board = Board.new(name:"Backlog");
-board.save;
-board = Board.new(name:"In Progress");
-board.save;
-board = Board.new(name:"User Stories");
-board.save;
-board = Board.new(name:"Review/QA");
-board.save;
-board = Board.new(name:"Done");
-board.save;
-board = Board.new(name:"Closed");
+artBoard = Board.new(name:"Art From Light");
+artBoard.save;
+
+tasklist = Tasklist.new(name:"Backlog", board_id: artBoard.id);
+tasklist.save;
+tasklist = Tasklist.new(name:"In Progress", board_id: artBoard.id);
+tasklist.save;
+tasklist = Tasklist.new(name:"Done", board_id: artBoard.id);
+tasklist.save;
+
+boardBoard = Board.new(name:"Boardwalk");
+boardBoard.save;
+
+tasklist = Tasklist.new(name:"Backlog", board_id: boardBoard.id);
+tasklist.save;
+
+board = Board.new(name:"Chess");
 board.save;
