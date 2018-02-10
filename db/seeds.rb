@@ -38,6 +38,9 @@ boardBoard.save;
 tasklist = Tasklist.new(name:"Backlog", board_id: boardBoard.id);
 tasklist.save;
 
+task = Task.new(name: "task4", tasklist_id: tasklist.id);
+task.save;
+
 #######
 # Chess board
 board = Board.new(name:"Chess");

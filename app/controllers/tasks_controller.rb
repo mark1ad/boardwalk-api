@@ -1,41 +1,56 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :update, :destroy]
 
-  # GET /tasks
+  # TODO: Check that tasklist has board_id
+
+  # GET /boards/1/tasklists/1/tasks
   def index
-    @tasks = Task.all
+    @tasks = Task.where(tasklist_id: params[:tasklist_id])
 
     render json: @tasks
   end
 
-  # GET /tasks/1
+  # GET /boards/1/tasklists/1/tasks/1
   def show
-    render json: @task
-  end
-
-  # POST /tasks
-  def create
-    @task = Task.new(task_params)
-
-    if @task.save
-      render json: @task, status: :created, location: @task
-    else
-      render json: @task.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /tasks/1
-  def update
-    if @task.update(task_params)
+    if @task.tasklist_id.to_s() == params[:tasklist_id]
       render json: @task
     else
+      render json: {error: "Not Found"}, status: :not_found
+    end
+  end
+
+  # POST /boards/1/tasklists/1/tasks
+  def create
+    @task = Task.new(task_params)
+    @task.tasklist_id = params[:tasklist_id]
+
+    if @task.save
+      render json: @task, status: :created
+    else
       render json: @task.errors, status: :unprocessable_entity
     end
   end
 
-  # DELETE /tasks/1
+  # PATCH/PUT /boards/1/tasklists/1/tasks/1
+  def update
+    if @task.tasklist_id.to_s() == params[:tasklist_id]
+      if @task.update(task_params)
+        render json: @task
+      else
+        render json: @task.errors, status: :unprocessable_entity
+      end
+    else
+      render json: {error: "Not Found"}, status: :not_found
+    end
+  end
+
+  # DELETE /boards/1/tasklists/1/tasks/1
   def destroy
-    @task.destroy
+    if @task.tasklist_id.to_s() == params[:tasklist_id]
+      @task.destroy
+    else
+      render json: {error: "Not Found"}, status: :not_found
+    end
   end
 
   private
