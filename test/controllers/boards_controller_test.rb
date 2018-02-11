@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BoardsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @board = boards(:one)
+    @board = boards(:boardwalk)
   end
 
   test "should get index" do
@@ -12,7 +12,7 @@ class BoardsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create board" do
     assert_difference('Board.count') do
-      post boards_url, params: { board: { name: @board.name } }, as: :json
+      post boards_url, params: { board: { name: "new board" } }, as: :json
     end
 
     assert_response 201

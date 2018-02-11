@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  tasklist_id: 1
+  tasklist: backlog
 
 two:
   name: MyString
-  tasklist_id: 1
+  tasklist: backlog

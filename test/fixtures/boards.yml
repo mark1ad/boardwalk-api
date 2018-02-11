@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+artFromLight:
+  name: "Art From Light"
 
-two:
-  name: MyString
+boardwalk:
+  name: Boardwalk
