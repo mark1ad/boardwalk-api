@@ -5,13 +5,22 @@ class TasklistsController < ApplicationController
   def index
     @tasklists = Tasklist.where(board_id: params[:board_id])
 
-    render json: @tasklists
+    @data = []
+    # Get the tasks for each list
+    @tasklists.each { |tl|
+      @tasks = Task.where(tasklist_id: tl.id)
+      @data.push({tasklist: tl, tasks: @tasks})
+    }
+
+    render json: @data
   end
 
   # GET boards/1/tasklists/1
   def show
     if @tasklist.board_id.to_s() == params[:board_id]
-      render json: @tasklist
+      @tasks = Task.where(tasklist_id: @tasklist.id)
+      @tasklist.tasks = @tasks
+      render json: {tasklist: @tasklist, tasks: @tasks }
     else
       render json: {error: "Not Found"}, status: :not_found
     end
