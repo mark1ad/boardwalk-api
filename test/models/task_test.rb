@@ -14,4 +14,14 @@ class TaskTest < ActiveSupport::TestCase
     task = Task.create({name: "do", tasklist_id: tasklist.id})
     assert task.valid?
   end
+
+  def test_description
+    board = Board.create({name: "board"})
+    tasklist = Tasklist.create({name: "list", board_id: board.id})
+    task = Task.create({name: "do",
+      tasklist_id: tasklist.id,
+      description: "description"
+    })
+    assert task.valid?
+  end
 end
