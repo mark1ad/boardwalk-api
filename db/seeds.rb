@@ -14,9 +14,15 @@ artBoard.save;
 tasklist = Tasklist.new(name:"Backlog", board_id: artBoard.id);
 tasklist.save;
 
-task = Task.new(name: "task1", tasklist_id: tasklist.id);
+task = Task.new(name: "task1",
+  tasklist_id: tasklist.id,
+  description: "Task 1 description"
+);
 task.save;
-task = Task.new(name: "task2", tasklist_id: tasklist.id);
+task = Task.new(name: "task2",
+  tasklist_id: tasklist.id,
+  description: "Task 2 description"
+);
 task.save;
 task = Task.new(name: "task3", tasklist_id: tasklist.id);
 task.save;
@@ -38,7 +44,7 @@ boardBoard.save;
 tasklist = Tasklist.new(name:"Backlog", board_id: boardBoard.id);
 tasklist.save;
 
-task = Task.new(name: "task4", tasklist_id: tasklist.id);
+task = Task.new(name: "task5", tasklist_id: tasklist.id);
 task.save;
 
 #######
