@@ -1,24 +1,62 @@
-# README
+# Boardwalk-API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails backend for
+[Boardwalk](https://github.com/mark1ad/boardwalk).
 
-Things you may want to cover:
+Development was done using TDD with the built-in Rails test mechanisms.
+To execute the tests run
+```
+rails test_helper
+```
 
-* Ruby version
+---
 
-* System dependencies
+## Database Design
 
-* Configuration
+![Database design](docs/boardwalk-api.png)
 
-* Database creation
+---
 
-* Database initialization
+## Routes
 
-* How to run the test suite
+Only non-standard routes are listed.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Tasklists
 
-* Deployment instructions
+**GET /boards/1/tasklists<br>
+GET /boards/1/tasklists/1**
 
-* ...
+**POST /boards/1/tasklists**
+
+Parameters |
+---------- | -------------
+name | name of the tasklist
+
+**PUT /boards/1/tasklists/1**
+
+Parameters |
+---------- | -------------
+name | name of the tasklist
+
+**DELETE /boards/1/tasklists/1**
+
+### Tasks
+
+**GET /boards/1/tasklists/1/tasks<br>
+GET /boards/1/tasklists/1/tasks/1**
+
+**POST /boards/1/tasklists/1/tasks**<br>
+
+Parameters |
+---------- | -------------
+name | name of the task
+description | description of task
+
+**PUT /boards/1/tasklists/1/tasks**<br>
+
+Parameters |
+---------- | -------------
+name | name of the task
+description | description of task
+
+**DELETE /boards/1/tasklists/1/tasks **
