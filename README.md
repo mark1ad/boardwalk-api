@@ -28,13 +28,13 @@ GET /boards/1/tasklists/1**
 
 **POST /boards/1/tasklists**
 
-Parameters |
+Parameter | Description
 ---------- | -------------
 name | name of the tasklist
 
 **PUT /boards/1/tasklists/1**
 
-Parameters |
+Parameter | Description
 ---------- | -------------
 name | name of the tasklist
 
@@ -47,14 +47,14 @@ GET /boards/1/tasklists/1/tasks/1**
 
 **POST /boards/1/tasklists/1/tasks**<br>
 
-Parameters |
+Parameter | Description
 ---------- | -------------
 name | name of the task
 description | description of task
 
 **PUT /boards/1/tasklists/1/tasks**<br>
 
-Parameters |
+Parameter | Description
 ---------- | -------------
 name | name of the task
 description | description of task
